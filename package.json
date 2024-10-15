@@ -17,6 +17,7 @@
     "encoding": "^0.1.13",
     "faunadb": "^3.0.1",
     "history": "^4.10.1",
+    "japdeparis": "file:",
     "netlify-lambda": "^2.0.1",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
