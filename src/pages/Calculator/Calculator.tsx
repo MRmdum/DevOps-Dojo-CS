@@ -28,9 +28,7 @@ type ClassNames =
   | "itemContainer"
   | "buttonContainer"
   | "lateralBar"
-  | "barSpacer"
-  | "buttonSpacer"; // New class for spacing buttons
-
+  | "barSpacer";
 interface OwnProps {
   classes: Record<ClassNames, string>;
 }
@@ -51,10 +49,6 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
       ...values,
       [itemName]: { value, kcal: value * itemKcal },
     });
-  };
-
-  const handleReset = () => {
-    setValues({});
   };
 
   const result = Object.keys(values).reduce((acc: number, itemName: string) => {
@@ -86,10 +80,6 @@ export const CalculatorPage: React.FC<Props> = (props: Props) => {
           <div className={classes.buttonContainer}>
             <Button variant="contained" onClick={sendData(result)}>
               {result} Kcal
-            </Button>
-            <div className={classes.buttonSpacer} />
-            <Button variant="outlined" onClick={handleReset}>
-              Reset
             </Button>
           </div>
         </div>
@@ -194,9 +184,6 @@ const styles = (theme: CustomTheme): Record<ClassNames, CSSProperties> => ({
     flex: 1,
     marginBottom: theme.spacing(3),
     marginTop: theme.spacing(3),
-  },
-  buttonSpacer: {
-    width: theme.spacing(2), // Adding space between buttons
   },
   lateralBar: {
     display: "flex",
